@@ -1,12 +1,18 @@
-import { authMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default authMiddleware({
-  publicRoutes: ["/api/webhooks/clerk"],
-});
+// Export the middleware
+export default clerkMiddleware();
 
+// Specify which routes are public and do not require authentication
 export const config = {
   matcher: [
-    "/((?!_next|[^?]*\\.(?:html?|css|js(?!on)|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
-    "/(api|trpc)(.*)",
+    // Public route patterns
+    "/api/webhooks/clerk",
+    // Add other public routes here if necessary
+
+    // Pattern for protecting all other routes
+    "/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)",
+    "/api/:path*",
+    "/trpc/:path*",
   ],
 };

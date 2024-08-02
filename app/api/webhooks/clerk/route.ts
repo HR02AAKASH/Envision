@@ -8,7 +8,7 @@ import {
   createUser,
   deleteUser,
   updateUser,
-} from "@/lib/actions/users.actions";
+} from "@/lib/actions/user.actions";
 
 export async function POST(req: Request) {
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the webhook

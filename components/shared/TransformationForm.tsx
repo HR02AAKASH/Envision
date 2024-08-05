@@ -37,6 +37,7 @@ export const formSchema = z.object({
   aspectRatio: z.string().optional(),
   color: z.string().optional(),
   prompt: z.string(),
+  publicId: z.string().optional(),
 });
 
 const TransformationForm = ({

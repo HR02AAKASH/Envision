@@ -1,7 +1,7 @@
-import { authMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware } from "@clerk/nextjs/server";
 
 // Export the middleware
-export default authMiddleware();
+export default clerkMiddleware();
 
 // Specify which routes are public and do not require authentication
 export const config = {

@@ -31,6 +31,7 @@ import {
 } from "@/constants";
 import { CustomField } from "./CustomField";
 import { AspectRatioKey, debounce, deepMergeObjects } from "@/lib/utils";
+import MediaUploader from "./MediaUploader";
 export const formSchema = z.object({
   title: z.string(),
   aspectRatio: z.string().optional(),
@@ -194,6 +195,22 @@ const TransformationForm = ({
           )}
         </div>
       )}
+      <div className="media-uploader-field">
+        <CustomField
+          control={form.control}
+          className="flex size-full  flex-col"
+          name="publicId"
+          render={({ field }) => (
+            <MediaUploader
+              onValueChange={field.onChange}
+              setImage={setImage}
+              publicId={field.image}
+              image={image}
+              type={type}
+            />
+          )}
+        />
+      </div>
 
       <div className="flex flex-col gap-4">
         <Button
